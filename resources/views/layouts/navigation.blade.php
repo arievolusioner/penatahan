@@ -3,8 +3,7 @@
         let currentScroll = window.pageYOffset;
         if (currentScroll <= 0) {
             scrolled = false;
-        }
-        if (currentScroll > lastScroll && currentScroll > 50) {
+        } else if (currentScroll > lastScroll && currentScroll > 50) {
             // Scroll down
             scrolled = true;
         } else if (currentScroll < lastScroll) {
@@ -17,8 +16,9 @@
      :class="{ 'shadow-md': lastScroll > 10 }">
     
     <!-- Top Bar with Social Media and Contact - Hidden when scrolled down -->
-    <div class="bg-gray-100 transition-all duration-300" :class="{ 'h-0 opacity-0 overflow-hidden': scrolled, 'h-10 opacity-100': !scrolled }">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-end space-x-4">
+    <div class="bg-gray-100 overflow-hidden transition-all duration-300 ease-in-out"
+         :class="scrolled ? 'max-h-0 opacity-0' : 'max-h-10 opacity-100'">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10 flex items-center justify-end space-x-4">
             <a href="" class="text-gray-600 hover:text-gray-900">
                 <span class="sr-only">Instagram</span>
                 <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -119,12 +119,16 @@
             </div>
 
             <div class="flex items-center">
+            
                 <!-- BELI TIKET Button -->
-                <div class="hidden sm:flex sm:items-center sm:ms-6">
-                    <a href="" class="inline-flex items-center px-4 py-2 bg-[#0288D1] border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-[#0277BD] focus:bg-[#0277BD] active:bg-[#01579B] focus:outline-none focus:ring-2 focus:ring-[#0288D1] focus:ring-offset-2 transition ease-in-out duration-150">
-                        {{ __('BELI TIKET') }}
-                    </a>
-                </div>
+            <div class="hidden sm:flex sm:items-center sm:ms-6">
+                <a href=""
+                class="inline-flex items-center px-4 py-2 bg-blue-600 rounded-lg font-semibold text-xs text-white uppercase tracking-widest 
+                        hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 transition ease-in-out duration-150">
+                    {{ __('BELI TIKET') }}
+                </a>
+            </div>
+
 
                 @auth            
                 <!-- Settings Dropdown -->

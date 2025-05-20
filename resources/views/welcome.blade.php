@@ -78,6 +78,38 @@
         </div>
     </div>
 
+    {{-- Galeri Kami --}}
+    <section class="bg-gray-200 py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-5 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Galeri Kami</h2>
+            <div class="mx-auto mb-8 w-16 h-1 bg-blue-500 rounded"></div>
+
+            {{-- Carousel --}}
+            <div class="flex items-center justify-center space-x-6 overflow-hidden">
+                {{-- Tombol Sebelumnya --}}
+                <button id="prevBtn" class="text-blue-500 hover:text-blue-700 text-2xl focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+
+                {{-- Gambar Galeri --}}
+                <div id="galleryImages" class="flex gap-6 transition-transform duration-500 ease-in-out">
+                    <img src="{{ asset('img/cards-img.png') }}" class="w-72 rounded-lg shadow-md object-cover" alt="Galeri 1">
+                    <img src="{{ asset('img/cards-img.png') }}" class="w-72 rounded-lg shadow-md object-cover" alt="Galeri 2">
+                    <img src="{{ asset('img/cards-img.png') }}" class="w-72 rounded-lg shadow-md object-cover" alt="Galeri 3">
+                </div>
+
+                {{-- Tombol Selanjutnya --}}
+                <button id="nextBtn" class="text-blue-500 hover:text-blue-700 text-2xl focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
 
 
 </x-app-layout>
