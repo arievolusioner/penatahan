@@ -121,13 +121,22 @@
             <div class="flex items-center">
             
                 <!-- BELI TIKET Button -->
+            @auth
+                    
             <div class="hidden sm:flex sm:items-center sm:ms-6">
-                <a href=""
+                <a href="{{ route('welcome') }}"
                 class="inline-flex items-center px-4 py-2 bg-blue-600 rounded-lg font-semibold text-xs text-white uppercase tracking-widest 
                         hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 transition ease-in-out duration-150">
                     {{ __('BELI TIKET') }}
                 </a>
             </div>
+            @else
+                <a href="{{ route('login') }}"
+                class="inline-flex items-center px-4 py-2 bg-blue-600 rounded-lg font-semibold text-xs text-white uppercase tracking-widest 
+                        hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 transition ease-in-out duration-150">
+                    {{ __('BELI TIKET') }}
+                </a>
+            @endauth
 
 
                 @auth            
@@ -225,7 +234,7 @@
 
             <!-- Mobile BELI TIKET Button -->
             <div class="px-4 pt-2">
-                <a href="#" class="block w-full px-4 py-2 bg-[#0288D1] border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest text-center hover:bg-[#0277BD] focus:bg-[#0277BD] active:bg-[#01579B] focus:outline-none focus:ring-2 focus:ring-[#0288D1] focus:ring-offset-2 transition ease-in-out duration-150">
+                <a href="auth()->check() ? '#' : route('login')" class="block w-full px-4 py-2 bg-[#0288D1] border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest text-center hover:bg-[#0277BD] focus:bg-[#0277BD] active:bg-[#01579B] focus:outline-none focus:ring-2 focus:ring-[#0288D1] focus:ring-offset-2 transition ease-in-out duration-150">
                     {{ __('BELI TIKET') }}
                 </a>
             </div>

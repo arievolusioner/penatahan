@@ -24,6 +24,7 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
+            ->brandName('Yeh Panes Penatahan')
             ->id('admin')
             ->path('admin')
             ->login()
