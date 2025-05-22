@@ -12,6 +12,19 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+// Galeri
+Route::get('/foto', function () {
+    return view('galeri.foto');
+})->name('foto');
+
+Route::get('/video', function () {
+    return view('galeri.video');
+})->name('video');
+
 // Logout Admin 
 Route::post('/admin/logout', function () {
     Auth::logout();
@@ -20,9 +33,9 @@ Route::post('/admin/logout', function () {
     return redirect('/'); // redirect ke homepage setelah logout
 })->name('filament.admin.auth.logout');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/welcome', function () {
+    return view('welcome');
+})->middleware(['auth', 'verified'])->name('welcome');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

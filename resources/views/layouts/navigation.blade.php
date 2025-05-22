@@ -1,4 +1,4 @@
-<nav x-data="{ open: false, scrolled: false, lastScroll: 0, galeriOpen: false, layananOpen: false }" 
+<nav x-data="{ open: false, scrolled: false, lastScroll: 0 }" 
      @scroll.window="
         let currentScroll = window.pageYOffset;
         if (currentScroll <= 0) {
@@ -46,7 +46,7 @@
         <div class="flex justify-between h-16">
             <!-- Logo -->
             <div class="shrink-0 flex items-center">
-                <a href="{{ route('dashboard') }}">
+                <a href="{{ route('welcome') }}">
                     <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                 </a>
             </div>
@@ -54,10 +54,10 @@
             <!-- Navigation Links (Centralized) -->
             <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-center">
                 <div class="flex space-x-8">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
                         {{ __('Beranda') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                         {{ __('Tentang Kami') }}
                     </x-nav-link>
                     
@@ -78,14 +78,14 @@
                             x-transition:leave-start="opacity-100 scale-100"
                             x-transition:leave-end="opacity-0 scale-95"
                             class="absolute top-full left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
-                            <div class="py-1">
-                                <x-dropdown-link href="#">
-                                    {{ __('Galeri Foto') }}
-                                </x-dropdown-link>
-                                <x-dropdown-link href="#">
-                                    {{ __('Galeri Video') }}
-                                </x-dropdown-link>
-                            </div>
+                                <div class="py-1">
+                                    <x-dropdown-link href="{{ route('foto') }}" :active="request()->routeIs('foto')">
+                                        {{ __('Galeri Foto') }}
+                                    </x-dropdown-link>
+                                    <x-dropdown-link href="{{ route('video') }}" :active="request()->routeIs('video')">
+                                        {{ __('Galeri Video') }}
+                                    </x-dropdown-link>
+                                </div>
                         </div>
                     </div>
                     
@@ -157,7 +157,7 @@
 
                         <x-slot name="content">
                             <x-dropdown-link :href="route('profile.edit')">
-                                {{ __('Profile') }}
+                                {{ __('Edit Profil') }}
                             </x-dropdown-link>
 
                             <!-- Authentication -->
@@ -166,7 +166,7 @@
                                 <x-dropdown-link :href="route('logout')"
                                         onclick="event.preventDefault();
                                                     this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Keluar') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>
@@ -190,10 +190,10 @@
     <!-- Mobile menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
                 {{ __('Beranda') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('about')" :active="request()->routeIs('about')">
                 {{ __('Tentang Kami') }}
             </x-responsive-nav-link>
             
@@ -206,13 +206,14 @@
                     </svg>
                 </button>
                 <div x-show="open" class="pl-4">
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link href="{{ route('foto') }}" :active="request()->routeIs('foto')">
                         {{ __('Galeri Foto') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link href="{{ route('video') }}" :active="request()->routeIs('video')">
                         {{ __('Galeri Video') }}
                     </x-responsive-nav-link>
                 </div>
+
             </div>
             
             <!-- Mobile Layanan Dropdown -->
@@ -234,7 +235,7 @@
 
             <!-- Mobile BELI TIKET Button -->
             <div class="px-4 pt-2">
-                <a href="auth()->check() ? '#' : route('login')" class="block w-full px-4 py-2 bg-[#0288D1] border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest text-center hover:bg-[#0277BD] focus:bg-[#0277BD] active:bg-[#01579B] focus:outline-none focus:ring-2 focus:ring-[#0288D1] focus:ring-offset-2 transition ease-in-out duration-150">
+                <a href="{{ auth()->check() ? '#' : route('login') }}" class="block w-full px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest text-center hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition ease-in-out duration-150">
                     {{ __('BELI TIKET') }}
                 </a>
             </div>
@@ -250,7 +251,7 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                    {{ __('Edit Profil') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -259,7 +260,7 @@
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Keluar') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

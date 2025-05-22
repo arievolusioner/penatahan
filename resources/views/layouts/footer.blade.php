@@ -35,16 +35,7 @@
             <div>
                 <h2 class="text-lg font-semibold mb-3">Temukan Kami</h2>
                 <div class="w-full h-48 rounded shadow overflow-hidden">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126284.92073595693!2d114.9782597141653!3d-8.424274772991452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2276d20da6dd9%3A0x5fc11427f00bb4ce!2sYeh%20Panes%20Hot%20Spring%2C%20Penatahan!5e0!3m2!1sid!2sid!4v1716195577773!5m2!1sid!2sid" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Lokasi Yeh Panes Penatahan">
-                    </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1973.3235802697702!2d115.12660380669688!3d-8.436266844703889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd225b74a7ccb3d%3A0xa3af7a1e29809660!2sAir%20Panas%20Penatahan!5e0!3m2!1sid!2sid!4v1747889050102!5m2!1sid!2sid" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
