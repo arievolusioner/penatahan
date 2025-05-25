@@ -22,7 +22,7 @@ class GaleriVideoResource extends Resource
         return 'Galeri Video';
     }
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-video-camera';
 
     public static function getNavigationGroup(): ?string
     {

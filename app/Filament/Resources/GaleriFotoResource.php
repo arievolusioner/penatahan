@@ -23,7 +23,7 @@ class GaleriFotoResource extends Resource
         return 'Galeri Foto';
     }
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-camera';
 
     public static function getNavigationGroup(): ?string
     {

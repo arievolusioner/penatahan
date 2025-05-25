@@ -22,7 +22,7 @@ class LayananResource extends Resource
         return 'Layanan';
     }
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-briefcase';
 
     public static function getNavigationGroup(): ?string
     {

@@ -22,7 +22,7 @@ class FasilitasResource extends Resource
         return 'Fasilitas';
     }
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
 
     public static function getNavigationGroup(): ?string
     {

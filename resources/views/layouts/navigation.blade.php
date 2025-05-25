@@ -10,15 +10,16 @@
             // Scroll up
             scrolled = false;
         }
-        lastScroll = currentScroll;
+        lastScroll = currentScroll <= 0 ? 0 : currentScroll; // Pastikan tidak negatif
      " 
-     class="bg-white sticky top-0 z-50 transition-all duration-300"
+     class="bg-white sticky top-0 z-50 transition-all duration-300 ease-in-out"
      :class="{ 'shadow-md': lastScroll > 10 }">
     
     <!-- Top Bar with Social Media and Contact - Hidden when scrolled down -->
-    <div class="bg-gray-100 overflow-hidden transition-all duration-300 ease-in-out"
-         :class="scrolled ? 'max-h-0 opacity-0' : 'max-h-10 opacity-100'">
+    <div class="bg-gray-100 transition-all duration-300 ease-in-out"
+         :class="scrolled ? 'h-0 opacity-0 overflow-hidden' : 'h-10 opacity-100'">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10 flex items-center justify-end space-x-4">
+            <!-- Isi kontak dan sosial media tetap sama -->
             <a href="" class="text-gray-600 hover:text-gray-900">
                 <span class="sr-only">Instagram</span>
                 <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
