@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('informasis', function (Blueprint $table) {
+        Schema::create('informasi_tikets', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->string('slug')->unique();
-            $table->text('deskripsi');
-            $table->string('gambar_utama')->nullable();
-            $table->string('jam_buka')->nullable();
-            $table->string('alamat')->nullable();
+            $table->foreignId('informasi_id')->constrained()->onDelete('cascade');
+            $table->string('kategori'); // Contoh: Kolam Anak, Jacuzzi
+            $table->integer('harga'); // dalam Rupiah
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('informasis');
+        Schema::dropIfExists('informasi_tikets');
     }
 };

@@ -52,9 +52,11 @@ class GaleriFotoResource extends Resource
 
                         Forms\Components\Select::make('kategori')
                             ->options([
-                                'wisata' => 'Wisata',
-                                'fasilitas' => 'Fasilitas',
-                                'aktivitas' => 'Aktivitas',
+                                'kolam-air-panas' => 'Kolam Air Panas',
+                                'jacuzzi' => 'Jacuzzi',
+                                'ho-river' => 'Ho River',
+                                'restaurant' => 'Restaurant',
+                                'penginapan' => 'Penginapan',
                             ])
                             ->required(),
 
@@ -105,10 +107,12 @@ class GaleriFotoResource extends Resource
                 Tables\Columns\TextColumn::make('kategori')
                     ->badge()
                     ->color(fn(string $state): string => match ($state) {
-                        'wisata' => 'info',
-                        'fasilitas' => 'success',
-                        'aktivitas' => 'warning',
-                        default => 'gray',
+                        'kolam-air-panas' => 'info',
+                        'jacuzzi' => 'success',
+                        'ho-river' => 'warning',
+                        'restaurant' => 'danger',
+                        'penginapan' => 'gray',
+                        default => 'secondary',
                     }),
 
                 Tables\Columns\IconColumn::make('is_featured')
@@ -125,9 +129,11 @@ class GaleriFotoResource extends Resource
             ->filters([
                 Tables\Filters\SelectFilter::make('kategori')
                     ->options([
-                        'wisata' => 'Wisata',
-                        'fasilitas' => 'Fasilitas',
-                        'aktivitas' => 'Aktivitas',
+                        'kolam-air-panas' => 'Kolam Air Panas',
+                        'jacuzzi' => 'Jacuzzi',
+                        'ho-river' => 'Ho River',
+                        'restaurant' => 'Restaurant',
+                        'penginapan' => 'Penginapan',
                     ]),
 
                 Tables\Filters\TernaryFilter::make('is_featured')

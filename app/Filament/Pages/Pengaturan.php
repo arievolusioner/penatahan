@@ -27,7 +27,8 @@ class Pengaturan extends Page implements Forms\Contracts\HasForms
 
     protected static ?string $title = 'Setelan';
 
-    public $tiktok, $facebook, $instagram, $linkedin, $youtube, $number, $email, $logo, $tentang_kami, $gmaps;
+    // Tambahkan properti untuk foto_desktop
+    public $tiktok, $facebook, $instagram, $linkedin, $youtube, $number, $email, $logo, $foto_desktop, $tentang_kami, $gmaps;
 
     public function mount(): void
     {
@@ -39,6 +40,8 @@ class Pengaturan extends Page implements Forms\Contracts\HasForms
             'youtube' => $this->getSetting('youtube'),
             'number' => $this->getSetting('number'),
             'email' => $this->getSetting('email'),
+            'logo' => $this->getSetting('logo'),
+            'foto_desktop' => $this->getSetting('foto_desktop'), // ini yang baru
             'tentang_kami' => $this->getSetting('tentang_kami'),
             'gmaps' => $this->getSetting('gmaps'),
         ]);
@@ -59,6 +62,11 @@ class Pengaturan extends Page implements Forms\Contracts\HasForms
                 ->directory('logos')
                 ->image()
                 ->preserveFilenames(),
+            FileUpload::make('foto_desktop') // field baru untuk foto desktop
+                ->label('Foto Desktop')
+                ->directory('desktop-images')
+                ->image()
+                ->preserveFilenames(),
             RichEditor::make('tentang_kami')->label('Tentang Kami'),
             Textarea::make('gmaps')->label('Embed Google Maps'),
         ];
@@ -69,7 +77,8 @@ class Pengaturan extends Page implements Forms\Contracts\HasForms
         $data = $this->form->getState();
 
         foreach ($data as $key => $value) {
-            if ($key === 'logo' && $value) {
+            if (in_array($key, ['logo', 'foto_desktop']) && $value) {
+                // convert path ke URL agar bisa dipakai di frontend
                 $value = Storage::url($value);
             }
 
@@ -84,8 +93,6 @@ class Pengaturan extends Page implements Forms\Contracts\HasForms
         // Redirect ulang ke halaman ini supaya flash message muncul
         return redirect(request()->header('Referer') ?: url()->current());
     }
-
-
 
     protected function getSetting($key)
     {

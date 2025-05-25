@@ -47,7 +47,7 @@
         <div class="flex justify-between h-16">
             <!-- Logo -->
             <div class="shrink-0 flex items-center">
-                <a href="{{ route('welcome') }}">
+                <a href="{{ route('home') }}">
                     <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                 </a>
             </div>
@@ -55,7 +55,7 @@
             <!-- Navigation Links (Centralized) -->
             <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-center">
                 <div class="flex space-x-8">
-                    <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Beranda') }}
                     </x-nav-link>
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
@@ -80,7 +80,7 @@
                             x-transition:leave-end="opacity-0 scale-95"
                             class="absolute top-full left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
                                 <div class="py-1">
-                                    <x-dropdown-link href="{{ route('foto') }}" :active="request()->routeIs('foto')">
+                                    <x-dropdown-link href="{{ route('galeri.foto') }}" :active="request()->routeIs('foto')">
                                         {{ __('Galeri Foto') }}
                                     </x-dropdown-link>
                                     <x-dropdown-link href="{{ route('video') }}" :active="request()->routeIs('video')">
@@ -125,7 +125,7 @@
             @auth
                     
             <div class="hidden sm:flex sm:items-center sm:ms-6">
-                <a href="{{ route('welcome') }}"
+                <a href="{{ route('home') }}"
                 class="inline-flex items-center px-4 py-2 bg-blue-600 rounded-lg font-semibold text-xs text-white uppercase tracking-widest 
                         hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 transition ease-in-out duration-150">
                     {{ __('BELI TIKET') }}
@@ -191,7 +191,7 @@
     <!-- Mobile menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
                 {{ __('Beranda') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('about')" :active="request()->routeIs('about')">
@@ -207,7 +207,7 @@
                     </svg>
                 </button>
                 <div x-show="open" class="pl-4">
-                    <x-responsive-nav-link href="{{ route('foto') }}" :active="request()->routeIs('foto')">
+                    <x-responsive-nav-link href="{{ route('galeri.foto') }}" :active="request()->routeIs('foto')">
                         {{ __('Galeri Foto') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link href="{{ route('video') }}" :active="request()->routeIs('video')">

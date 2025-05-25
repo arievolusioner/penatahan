@@ -1,25 +1,24 @@
 <?php
 
+use App\Http\Controllers\GaleriFotoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/', function () {
     return view('welcome');
-})->name('welcome');
+})->name('home');
 
 Route::get('/about', function () {
     return view('about');
 })->name('about');
 
 // Galeri
-Route::get('/foto', function () {
-    return view('galeri.foto');
-})->name('foto');
+Route::get('/galeri/foto', [GaleriFotoController::class, 'index'])->name('galeri.foto');
 
 Route::get('/video', function () {
     return view('galeri.video');
@@ -35,7 +34,7 @@ Route::post('/admin/logout', function () {
 
 Route::get('/welcome', function () {
     return view('welcome');
-})->middleware(['auth', 'verified'])->name('welcome');
+})->name('welcome');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

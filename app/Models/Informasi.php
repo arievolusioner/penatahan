@@ -17,6 +17,8 @@ class Informasi extends Model
         'slug',
         'deskripsi',
         'gambar_utama',
+        'jam_buka',
+        'alamat'
     ];
 
     /**
@@ -39,5 +41,10 @@ class Informasi extends Model
                 }
             }
         });
+    }
+
+    public function tiket()
+    {
+        return $this->hasMany(InformasiTiket::class);
     }
 }
