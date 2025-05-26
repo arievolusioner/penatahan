@@ -12,7 +12,7 @@
                 <p class="text-sm text-gray-300 mb-3">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt faucibus.
                 </p>
-                <a href="#" class="text-sm underline hover:text-gray-100">Lihat selengkapnya...</a>
+                <a href="{{ route('about') }}" class="text-sm underline hover:text-gray-100">Lihat selengkapnya...</a>
             </div>
 
             {{-- Kontak Kami --}}

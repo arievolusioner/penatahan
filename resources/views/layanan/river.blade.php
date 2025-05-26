@@ -2,10 +2,10 @@
     <x-slot name="header">
     <div class="flex justify-between items-center">
         <h2 class="font-semibold text-2xl text-black leading-tight">
-            {{ __('Tentang Kami') }}
+            {{ __('Ho River') }}
         </h2>
         <div class="text-xs text-gray-500">
-            <a href="{{ url('/') }}" class="hover:underline text-[#0288D1]">Beranda</a> / <span class="text-gray-600">Tentang Kami</span>
+            <a href="{{ url('/river') }}" class="hover:underline text-[#0288D1]">Beranda</a> / <span class="text-gray-600">Ho River</span>
         </div>
     </div>
 </x-slot>
@@ -14,7 +14,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Gambar -->
             <div class="mb-8">
-                <img src="{{ asset('img/main2.png') }}" alt="Tentang Kami" class="w-full h-auto rounded-lg shadow-md object-cover">
+                <img src="{{ asset('img/airpanas.png') }}" alt="Tentang Kami" class="w-3xl h-auto rounded-lg shadow-md object-cover">
             </div>
 
             <!-- Teks -->
